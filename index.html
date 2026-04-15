@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>贵阳2日旅游攻略 · 方案A美食版</title>
+<style>
+:root{--primary:#2e7d32;--primary-light:#4caf50;--secondary:#1565c0;--accent:#f57c00;--bg:#f5f7fa;--card:#fff;--text:#212121;--text2:#616161;--border:#e0e0e0;--shadow:0 2px 8px rgba(0,0,0,.1);--radius:12px;--nav-bg:#1b5e20;--safe:env(safe-area-inset-bottom,0px)}
+[data-theme="dark"]{--primary:#66bb6a;--primary-light:#81c784;--secondary:#42a5f5;--accent:#ffb74d;--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--text2:#9e9e9e;--border:#333;--shadow:0 2px 8px rgba(0,0,0,.3);--nav-bg:#1b5e20}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);padding-bottom:70px;overflow-x:hidden}
+a{color:var(--secondary);text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
+.weather-bar{background:linear-gradient(135deg,#1b5e20,#2e7d32);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:200}
+.weather-main{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.weather-left{display:flex;align-items:center;gap:10px}
+.weather-icon{font-size:36px;line-height:1}
+.weather-temp{font-size:28px;font-weight:700}
+.weather-desc{font-size:13px;opacity:.9}
+.weather-right{text-align:right;font-size:12px;opacity:.85;line-height:1.6}
+.weather-alert{background:#ff9800;color:#fff;padding:8px 16px;font-size:13px;font-weight:600;display:none;animation:blink 2s infinite}
+.weather-alert.show{display:block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.6}}
+.weather-detail{display:none;padding:10px 16px;background:rgba(0,0,0,.15);font-size:13px;line-height:1.8}
+.weather-detail.show{display:block}
+.weather-detail span{margin-right:16px}
+.tab-nav{display:flex;background:var(--card);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:150;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex:1;min-width:0;padding:14px 8px;font-size:15px;font-weight:600;color:var(--text2);background:none;border:none;border-bottom:3px solid transparent;white-space:nowrap;text-align:center;transition:all .2s;min-height:52px}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}
+.tab-panel{display:none;padding:16px;animation:fadeIn .3s}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;color:#fff;margin-right:4px}
+.tag-free{background:#4caf50}.tag-gold{background:#ffa000}.tag-blue{background:#1976d2}.tag-red{background:#d32f2f}
+.tag-spicy-mild{background:#8bc34a}.tag-spicy-medium{background:#ff9800}.tag-spicy-hot{background:#f44336}
+.info-grid{display:grid;gap:8px;margin-top:12px}
+.info-item{display:flex;gap:8px;font-size:14px;line-height:1.5}
+.info-item .label{font-weight:600;color:var(--primary);min-width:72px;flex-shrink:0}
+.info-item .value{color:var(--text)}
+.route-box{background:var(--bg);border-radius:8px;padding:12px;margin-top:12px;font-size:14px;line-height:1.8}
+.route-box .step{display:flex;gap:8px;align-items:flex-start;margin-bottom:4px}
+.route-box .step-num{background:var(--primary);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+.nav-btn{display:inline-flex;align-items:center;gap:4px;background:var(--secondary);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;min-height:44px;transition:opacity .2s;margin:4px 4px 4px 0}
+.nav-btn:active{opacity:.8}
+.food-card{border-left:4px solid var(--accent)}
+.hotel-card{border-left:4px solid var(--tag-blue)}
+.spot-img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px;background:#e0e0e0}
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--primary)}
+.timeline-item{position:relative;margin-bottom:16px}
+.timeline-item::before{content:'';position:absolute;left:-20px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--primary);border:2px solid var(--card)}
+.timeline-time{font-weight:700;color:var(--primary);font-size:14px}
+.timeline-text{font-size:14px;color:var(--text);margin-top:2px;display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.timeline-text input[type="checkbox"]{width:18px;height:18px;accent-color:var(--primary);flex-shrink:0;margin-top:2px;cursor:pointer}
+.timeline-text .text-content{flex:1}
+.place-name{color:var(--secondary);cursor:pointer;border-bottom:1px dashed var(--secondary);transition:color .2s}
+.place-name:hover{color:var(--primary)}
+.place-name:active{opacity:.7}
+.place-expand{display:none;margin-top:8px;padding:8px 12px;background:var(--bg);border-radius:8px;font-size:13px;line-height:1.6;border:1px solid var(--border);flex-basis:100%}
+.place-expand.show{display:block}
+.place-expand .place-nav{margin-top:6px}
+.place-expand .place-tip{color:var(--accent);font-weight:600;margin-top:4px}
+[data-theme="dark"] .place-expand .place-tip{color:var(--accent)}
+.tip-box{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:8px;padding:12px;margin:12px 0;font-size:14px;line-height:1.6}
+[data-theme="dark"] .tip-box{background:linear-gradient(135deg,#3e2723,#4e342e);color:#ffe0b2}
+.tip-box .tip-title{font-weight:700;color:#e65100;margin-bottom:4px}
+[data-theme="dark"] .tip-box .tip-title{color:#ffb74d}
+.warn-box{background:linear-gradient(135deg,#ffebee,#ffcdd2);border-radius:8px;padding:12px;margin:12px 0;font-size:14px;line-height:1.6}
+[data-theme="dark"] .warn-box{background:linear-gradient(135deg,#3e2723,#4e342e);color:#ffcdd2}
+.warn-box .warn-title{font-weight:700;color:#c62828;margin-bottom:4px}
+[data-theme="dark"] .warn-box .warn-title{color:#ef9a9a}
+.checklist{list-style:none}
+.checklist li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;align-items:center;gap:8px}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:20px;height:20px;accent-color:var(--primary);flex-shrink:0}
+.table-wrap{overflow-x:auto;margin:12px 0}
+.table-wrap table{width:100%;border-collapse:collapse;font-size:14px}
+.table-wrap th{background:var(--nav-bg);color:#fff;padding:10px 8px;text-align:left;font-weight:600}
+.table-wrap td{padding:8px;border-bottom:1px solid var(--border)}
+.table-wrap tr:last-child td{font-weight:700;color:var(--primary)}
+.nav-bottom{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--card);border-top:1px solid var(--border);display:flex;padding-bottom:var(--safe);box-shadow:0 -2px 8px rgba(0,0,0,.1)}
+.nav-bottom a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0;font-size:11px;color:var(--text2);min-height:56px;transition:color .2s}
+.nav-bottom a.active{color:var(--primary)}
+.dark-toggle{background:rgba(255,255,255,.2);color:#fff;padding:6px 12px;border-radius:20px;font-size:13px;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.dark-toggle:active{background:rgba(255,255,255,.3)}
+.expand-btn{background:var(--primary-light);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;width:100%;margin-top:8px;min-height:44px}
+.expand-btn:active{opacity:.8}
+.collapsed .expand-content{display:none}
+.expanded .expand-content{display:block}
+.collapsed .expand-btn::after{content:' 展开详情 ▼'}
+.expanded .expand-btn::after{content:' 收起详情 ▲'}
+.sub-title{font-size:16px;font-weight:700;color:var(--secondary);margin:16px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--secondary)}
+</style>
+</head>
+<body>
+<div class="weather-bar" id="weatherBar">
+<div class="weather-main" onclick="toggleWeatherDetail()">
+<div class="weather-left">
+<span class="weather-icon" id="wIcon">🌤️</span>
+<div>
+<div class="weather-temp" id="wTemp">--°C</div>
+<div class="weather-desc" id="wDesc">贵阳 · 加载中...</div>
+</div>
+</div>
+<div class="weather-right">
+<div id="wWind">风向: --</div>
+<div id="wHumidity">湿度: --%</div>
+<div id="wUpdate">更新: --</div>
+</div>
+</div>
+<div class="weather-detail" id="weatherDetail">
+<span id="wFeels">体感: --°C</span>
+<span id="wVis">能见度: --</span>
+<span id="wPressure">气压: --</span>
+<div style="margin-top:8px;font-size:12px;opacity:.7">💡 点击可收起 | 数据来源：wttr.in</div>
+</div>
+</div>
+<div class="weather-alert" id="weatherAlert">⚠️ 天气预警加载中...</div>
+<div class="tab-nav" id="tabNav">
+<button class="tab-btn active" data-tab="route">🚄 路线</button>
+<button class="tab-btn" data-tab="scenic">🏞️ 景点</button>
+<button class="tab-btn" data-tab="food">🍜 美食</button>
+<button class="tab-btn" data-tab="hotel">🏨 酒店</button>
+<button class="tab-btn" data-tab="tips">💡 提示</button>
+</div>
+<div class="tab-panel active" id="panel-route">
+<div class="section-title">🚄 方案A · 美食为主版 · 行程路线</div>
+<div style="font-size:13px;color:var(--text2);margin-bottom:16px">重庆北碚出发 · 2人同行 · 预算≤200元/人/天（不含高铁）</div>
+<div class="card">
+<div class="sub-title">Day 1 · 美食+山水+白宫夜景</div>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-time">08:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t1"><span class="text-content">北碚出发→轨道6号线→5号线→重庆西站（约1.5小时，¥8）⚠️提前给乘车码/交通卡充值</span></div></div>
+<div class="timeline-item"><div class="timeline-time">10:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t2"><span class="text-content">到达重庆西站，安检候车（提前1小时到站）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">11:13</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t3"><span class="text-content"><strong>G3587 重庆西→贵阳北</strong>（¥139/人，2h5min）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">13:18</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t4"><span class="text-content">到达贵阳北站→地铁1号线→喷水池站</span></div></div>
+<div class="timeline-item"><div class="timeline-time">13:45</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t5"><span class="text-content"><span class="place-name" onclick="togglePlace('d1hotel')">龙猫精灵酒店</span>寄存行李</span>
+<div class="place-expand" id="d1hotel"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71350,26.59900&name=龙猫精灵酒店(喷水池店)&callnative=0" target="_blank">🗺️ 导航去酒店</a><div class="place-tip">💡 喷水池H口0距离·民生路步行2分钟·24h前台</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">13:50-14:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t6"><span class="text-content">🍜 午餐：<span class="place-name" onclick="togglePlace('d1minsheng')">民生路美食街</span></span>
+<div class="place-expand" id="d1minsheng"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71417,26.59833&name=民生路美食街&callnative=0" target="_blank">🗺️ 导航去民生路</a><div class="place-tip">💡 点单说"少辣点"·折耳根吃不惯可不放·2人分食1份丝娃娃+1份肠旺面</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">14:30-15:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t7"><span class="text-content">前往<span class="place-name" onclick="togglePlace('d1qls')">黔灵山公园</span>（打车5分钟¥10）</span>
+<div class="place-expand" id="d1qls"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.68742,26.60687&name=黔灵山公园&callnative=0" target="_blank">🗺️ 导航去黔灵山</a><div class="place-tip">💡 猕猴区禁投喂·食物放背包·穿防滑鞋·雨天改弘福寺+黔灵湖</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">15:00-17:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t8"><span class="text-content">🏞️ <span class="place-name" onclick="togglePlace('d1qls2')">黔灵山公园</span>（猕猴区→弘福寺→瞰筑亭→黔灵湖）</span>
+<div class="place-expand" id="d1qls2"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.68742,26.60687&name=黔灵山公园&callnative=0" target="_blank">🗺️ 导航去黔灵山</a><div class="place-tip">💡 猕猴区禁投喂·食物放背包·穿防滑鞋·雨天改弘福寺+黔灵湖</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">17:30-18:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t9"><span class="text-content">前往花果园白宫（地铁1号线→3号线松花路站A口）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">18:00-18:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t10"><span class="text-content">🏛️ <span class="place-name" onclick="togglePlace('d1bg1')">白宫外观拍照</span>（花果园中心广场+白宫全景）</span>
+<div class="place-expand" id="d1bg1"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.68922,26.56562&name=花果园白宫(艺术中心)&callnative=0" target="_blank">🗺️ 导航去白宫</a><div class="place-tip">💡 天桥拍全景·湖畔拍倒影·商圈高峰堵车建议地铁</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">18:30-19:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t11"><span class="text-content">🍜 晚餐：花果园周边（但家香酥鸭/857烙锅）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">19:30-20:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t12"><span class="text-content">🏛️ <span class="place-name" onclick="togglePlace('d1bg2')">白宫内部参观</span>（¥30/人，需预约+身份证）</span>
+<div class="place-expand" id="d1bg2"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.68922,26.56562&name=花果园白宫(艺术中心)&callnative=0" target="_blank">🗺️ 导航去白宫</a><div class="place-tip">💡 需提前预约·带身份证人脸核验·湖边无护栏注意安全</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">20:30-21:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t13"><span class="text-content">🏛️ <span class="place-name" onclick="togglePlace('d1bg3')">白宫夜景</span>（亮灯约19:00📸）</span>
+<div class="place-expand" id="d1bg3"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.68922,26.56562&name=花果园白宫(艺术中心)&callnative=0" target="_blank">🗺️ 导航去白宫</a><div class="place-tip">💡 亮灯后如水晶宫殿·湿地公园湖畔拍倒影最佳</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">21:00-21:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t14"><span class="text-content">返回酒店（地铁3号线→1号线喷水池站）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">21:30-22:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t15"><span class="text-content">🎁 伴手礼采购（<span class="place-name" onclick="togglePlace('d1msl')">民生路</span>/喷水池商圈）</span>
+<div class="place-expand" id="d1msl"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71417,26.59833&name=民生路美食街&callnative=0" target="_blank">🗺️ 导航去民生路</a><div class="place-tip">💡 波波糖¥15-25·刺梨干¥20-35·山花酸奶便利店可买·但家香酥鸭真空装¥35-50</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">22:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d1t16"><span class="text-content">返回酒店休息</span></div></div>
+</div>
+</div>
+<div class="card">
+<div class="sub-title">Day 2 · 田园骑行+甲秀楼白景</div>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-time">08:30-09:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t1"><span class="text-content">起床收拾，带上行李退房🧳（💡建议寄存前台，傍晚顺路取，轻装游玩更舒适）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">09:00-09:40</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t2"><span class="text-content">前往<span class="place-name" onclick="togglePlace('d2hx')">花溪公园</span>（地铁1号线→3号线花溪公园站B口，约40分钟）</span>
+<div class="place-expand" id="d2hx"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.67567,26.41083&name=花溪公园&callnative=0" target="_blank">🗺️ 导航去花溪公园</a><div class="place-tip">💡 推荐租自行车骑行体验更佳·紫外线强涂防晒·雨天取消骑行</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">09:40-12:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t3"><span class="text-content">�️ <span class="place-name" onclick="togglePlace('d2hx2')">花溪公园+十里河滩</span>（河畔漫步+骑行🚲¥15/时，预留充足时间慢慢逛）</span>
+<div class="place-expand" id="d2hx2"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.67567,26.41083&name=花溪公园&callnative=0" target="_blank">🗺️ 导航去花溪公园</a><div class="place-tip">💡 骑行体验远优于纯步行·租车¥15/时押金¥200(支付宝免押)·慢慢逛别赶</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">12:30-13:20</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t4"><span class="text-content">� 午餐：<span class="place-name" onclick="togglePlace('d2xyk')">心有客酸汤火锅</span>（¥45/人，蔬菜免费自助）</span>
+<div class="place-expand" id="d2xyk"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.67500,26.40500&name=心有客酸汤火锅(花溪店)&callnative=0" target="_blank">🗺️ 导航去心有客</a><div class="place-tip">💡 花溪公园打车约10分钟·酸汤锅底+现切牛肉+豆米·蔬菜无限续·大学生扎堆性价比之王</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">13:20-14:00</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t5"><span class="text-content">返回市区（地铁3号线→1号线喷水池站）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">14:00-14:20</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t6"><span class="text-content">前往<span class="place-name" onclick="togglePlace('d2jxl')">甲秀楼</span>（地铁1号线中山西路站E口+步行15分钟，⚠️晚高峰不建议打车）</span>
+<div class="place-expand" id="d2jxl"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71344,26.57457&name=甲秀楼&callnative=0" target="_blank">🗺️ 导航去甲秀楼</a><div class="place-tip">💡 ⚠️周一闭馆！·晚高峰堵车优先地铁+步行·下午逛白景+周边吃晚饭</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">14:20-16:20</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t7"><span class="text-content">🏯 <span class="place-name" onclick="togglePlace('d2jxl2')">甲秀楼+翠微园</span>（白景：浮玉桥全景→登楼→翠微园）</span>
+<div class="place-expand" id="d2jxl2"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71344,26.57457&name=甲秀楼&callnative=0" target="_blank">🗺️ 导航去甲秀楼</a><div class="place-tip">💡 免费含登楼·需"爽游贵阳"预约·⚠️周一闭馆·17:30停止入园</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">16:20-17:20</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t8"><span class="text-content">🍜 晚餐：<span class="place-name" onclick="togglePlace('d2stf')">老凯俚酸汤鱼</span>（甲秀楼步行10分钟，¥45/人）</span>
+<div class="place-expand" id="d2stf"><a class="nav-btn" href="https://uri.amap.com/marker?position=106.71650,26.58150&name=老凯俚酸汤鱼(省府路总店)&callnative=0" target="_blank">🗺️ 导航去酸汤鱼</a><div class="place-tip">💡 红酸汤鱼必点·不辣选毛辣果米皮·甲秀楼步行10分钟</div></div></div></div>
+<div class="timeline-item"><div class="timeline-time">17:20-17:50</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t9"><span class="text-content">回酒店取寄存行李（地铁1号线喷水池站，顺路不绕行）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">17:50-18:20</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t10"><span class="text-content">前往贵阳北站（地铁1号线7站约20分钟）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">18:30</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t11"><span class="text-content">到达贵阳北站，安检候车</span></div></div>
+<div class="timeline-item"><div class="timeline-time">19:38</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t12"><span class="text-content"><strong>G2882 贵阳北→重庆西</strong>（¥139/人，2h4min）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">21:42</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t13"><span class="text-content">到达重庆西站→轨道5号线→6号线→北碚（约1.5小时，¥8）</span></div></div>
+<div class="timeline-item"><div class="timeline-time">23:15</div><div class="timeline-text"><input type="checkbox" class="route-check" data-key="d2t14"><span class="text-content">🎉 到家！旅程结束</span></div></div>
+</div>
+</div>
+<div class="card">
+<div class="sub-title">💰 预算明细</div>
+<div class="table-wrap">
+<table>
+<tr><th>项目</th><th>Day1人均</th><th>Day2人均</th></tr>
+<tr><td>早餐</td><td>--</td><td>¥15</td></tr>
+<tr><td>午餐</td><td>¥35（民生路）</td><td>¥45（酸汤火锅）</td></tr>
+<tr><td>晚餐</td><td>¥45（花果园）</td><td>¥45（酸汤鱼）</td></tr>
+<tr><td>景点门票</td><td>¥30（白宫）</td><td>¥0（甲秀楼免费）</td></tr>
+<tr><td>市内交通</td><td>¥20</td><td>¥15</td></tr>
+<tr><td>住宿(人均)</td><td>¥50</td><td>--</td></tr>
+<tr><td>合计</td><td>¥180</td><td>¥120</td></tr>
+</table>
+</div>
+<div class="tip-box"><div class="tip-title">💡 预算说明</div>两日人均¥300（不含高铁），含高铁往返¥276，总预算约¥576/人<br>⚠️ 返程G2882为19:38发车→21:42到重庆西→约23:15到北碚，时间合理</div>
+</div>
+</div>
+<div class="tab-panel" id="panel-scenic">
+<div class="section-title">🏞️ 景点攻略</div>
+<div class="card collapsed" id="spot1">
+<img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Qianlingshan_Park_Gate.jpg/800px-Qianlingshan_Park_Gate.jpg" alt="黔灵山公园" onerror="this.src='https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=400&fit=crop';this.alt='森林示意'">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">1. 黔灵山公园</span>
+<span class="tag tag-free">免费</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">🎫 门票</span><span class="value">免费 · 观光车单程¥5/人</span></div>
+<div class="info-item"><span class="label">🕐 时间</span><span class="value">07:00-20:00 · 弘福寺07:00-18:00 · 动物园/熊猫馆09:00-17:00</span></div>
+<div class="info-item"><span class="label">⏱️ 时长</span><span class="value">常规2.5h · 精简1.5h（猕猴区+瞰筑亭）</span></div>
+<div class="info-item"><span class="label">📍 地址</span><span class="value">云岩区枣山路187号</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1/2号线喷水池站→打车5分钟</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.68742,26.60687&name=黔灵山公园&callnative=0" target="_blank">🗺️ 导航去黔灵山</a>
+<div class="expand-content">
+<div class="route-box" style="margin-top:12px">
+<div style="font-weight:700;color:var(--primary);margin-bottom:8px">🗺️ 游览路线（步行约4km）</div>
+<div class="step"><span class="step-num">1</span><span class="step-text">南门入口→石牌坊（5分钟）🚌观光车可直达弘福寺</span></div>
+<div class="step"><span class="step-num">2</span><span class="step-text">猕猴区→观赏野生猕猴（30分钟）⚠️不要手持食物</span></div>
+<div class="step"><span class="step-num">3</span><span class="step-text">弘福寺→黔南第一山古寺（20分钟）</span></div>
+<div class="step"><span class="step-num">4</span><span class="step-text">瞰筑亭→登顶200级台阶俯瞰贵阳（15分钟）📸</span></div>
+<div class="step"><span class="step-num">5</span><span class="step-text">下山至黔灵湖→湖畔漫步（30分钟）可选划船¥30/h</span></div>
+<div class="step"><span class="step-num">6</span><span class="step-text">动物园方向出园→可顺路看熊猫（20分钟）</span></div>
+</div>
+<div class="warn-box"><div class="warn-title">⚠️ 新手必看</div>• 猕猴区禁止投喂，食物放背包内<br>• 弘福寺→瞰筑亭警惕野导拉客<br>• 穿防滑运动鞋，雨后湿滑<br>• 🌧️ 雨天方案：弘福寺+黔灵湖畔+动物园室内馆</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('spot1')"></button>
+</div>
+<div class="card collapsed" id="spot2">
+<img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Huaguoyuan_Art_Center_Guiyang.jpg/800px-Huaguoyuan_Art_Center_Guiyang.jpg" alt="花果园白宫" onerror="this.src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=400&fit=crop';this.alt='白宫示意'">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">2. 花果园白宫（艺术中心）</span>
+<span class="tag tag-gold">¥30内部</span><span class="tag tag-free">外观免费</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">🎫 门票</span><span class="value">外观免费 · 内部¥30/人（2026年4月30日前优惠价）· 需微信小程序预约+身份证</span></div>
+<div class="info-item"><span class="label">🕐 时间</span><span class="value">10:00-22:00 · 亮灯约19:00</span></div>
+<div class="info-item"><span class="label">⏱️ 时长</span><span class="value">外观拍照30min + 内部参观1h + 夜景30min</span></div>
+<div class="info-item"><span class="label">📍 地址</span><span class="value">南明区花果园大街99号</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁3号线松花路站A口步行8-10分钟</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.68922,26.56562&name=花果园白宫(艺术中心)&callnative=0" target="_blank">🗺️ 导航去白宫</a>
+<div class="expand-content">
+<div class="route-box" style="margin-top:12px">
+<div style="font-weight:700;color:var(--primary);margin-bottom:8px">🗺️ 游览路线</div>
+<div class="step"><span class="step-num">1</span><span class="step-text">花果园中心广场→白宫外观全景📸（15分钟）</span></div>
+<div class="step"><span class="step-num">2</span><span class="step-text">白宫内部→艺术展览参观（1小时）需预约+身份证</span></div>
+<div class="step"><span class="step-num">3</span><span class="step-text">花果园湿地公园→湖畔漫步（20分钟）</span></div>
+<div class="step"><span class="step-num">4</span><span class="step-text">等亮灯→夜景拍摄📸（19:00后，如水晶宫殿）</span></div>
+</div>
+<div class="tip-box"><div class="tip-title">💡 拍照机位</div>• 天桥：白宫左侧全景经典机位<br>• 湿地公园湖畔：白宫+水中倒影<br>• 东门：正面全景+双子塔同框</div>
+<div class="warn-box"><div class="warn-title">⚠️ 注意</div>• 内部参观需提前预约，带身份证人脸核验<br>• 花果园商圈早晚高峰堵车，建议地铁<br>• 湿地公园湖边无护栏，拍照注意安全</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('spot2')"></button>
+</div>
+<div class="card collapsed" id="spot3">
+<img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jiaxiu_Tower_Guiyang.jpg/800px-Jiaxiu_Tower_Guiyang.jpg" alt="甲秀楼" onerror="this.src='https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&h=400&fit=crop';this.alt='古建筑示意'">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">3. 甲秀楼 + 翠微园</span>
+<span class="tag tag-free">免费</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">🎫 门票</span><span class="value">免费（含登楼+翠微园）· 需"爽游贵阳"微信公众号预约</span></div>
+<div class="info-item"><span class="label">🕐 时间</span><span class="value">09:00-18:00（17:30停止入园）· ⚠️周一闭馆 · 亮灯19:00-22:00</span></div>
+<div class="info-item"><span class="label">⏱️ 时长</span><span class="value">常规1.5h · 精简1h · 💡推荐下午来逛白景+周边吃晚饭，一次解锁两种体验</span></div>
+<div class="info-item"><span class="label">📍 地址</span><span class="value">南明区翠微巷8号</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1号线中山西路站E口步行15分钟 / 2号线大南门站步行10分钟</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71344,26.57457&name=甲秀楼&callnative=0" target="_blank">🗺️ 导航去甲秀楼</a>
+<div class="expand-content">
+<div class="route-box" style="margin-top:12px">
+<div style="font-weight:700;color:var(--primary);margin-bottom:8px">🗺️ 游览路线（步行约1.5km）</div>
+<div class="step"><span class="step-num">1</span><span class="step-text">浮玉桥→拍甲秀楼全景📸（10分钟）</span></div>
+<div class="step"><span class="step-num">2</span><span class="step-text">甲秀楼内→登楼俯瞰南明河（20分钟，免费）</span></div>
+<div class="step"><span class="step-num">3</span><span class="step-text">涵碧潭→水中倒影（10分钟）</span></div>
+<div class="step"><span class="step-num">4</span><span class="step-text">翠微园→明清园林（30分钟）</span></div>
+<div class="step"><span class="step-num">5</span><span class="step-text">南明河畔→等亮灯（20分钟）📸</span></div>
+</div>
+<div class="warn-box"><div class="warn-title">⚠️ 必看提醒</div>• ⚠️周一闭馆！如遇周一则改为Day2上午逛白宫<br>• 晚高峰（17:00-19:00）景区周边非常堵车，优先选地铁+步行，不建议打车直达<br>• 推荐路线：下午逛白天景致→周边吃晚饭→前往贵阳北站<br>• 甲秀楼→贵阳北站需1小时，G2882为19:38发车，18:30前到站即可</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('spot3')"></button>
+</div>
+<div class="card collapsed" id="spot4">
+<img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Huaxi_Park_Guiyang.jpg/800px-Huaxi_Park_Guiyang.jpg" alt="花溪公园" onerror="this.src='https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=400&fit=crop';this.alt='公园示意'">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">4. 花溪公园 + 十里河滩</span>
+<span class="tag tag-free">免费</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">🎫 门票</span><span class="value">免费 · 🚲强烈推荐租自行车骑行（¥15/时，押金¥200，支付宝免押），骑行体验远优于纯步行！</span></div>
+<div class="info-item"><span class="label">🕐 时间</span><span class="value">全天 · 建议08:30-12:00（预留充足时间慢慢逛）</span></div>
+<div class="info-item"><span class="label">⏱️ 时长</span><span class="value">常规3h（骑行）· 精简2h（步行精华段）</span></div>
+<div class="info-item"><span class="label">📍 地址</span><span class="value">花溪区花溪大道南段</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁3号线花溪公园站B口步行5分钟</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.67567,26.41083&name=花溪公园&callnative=0" target="_blank">🗺️ 导航去花溪公园</a>
+<div class="expand-content">
+<div class="route-box" style="margin-top:12px">
+<div style="font-weight:700;color:var(--primary);margin-bottom:8px">🗺️ 游览路线（步行/骑行约5km）</div>
+<div class="step"><span class="step-num">1</span><span class="step-text">花溪公园正门→沿河漫步（30分钟）</span></div>
+<div class="step"><span class="step-num">2</span><span class="step-text">十里河滩南入口→租自行车🚲（5分钟）</span></div>
+<div class="step"><span class="step-num">3</span><span class="step-text">骑行→音乐广场→荷花池→黄金大道（60分钟）📸</span></div>
+<div class="step"><span class="step-num">4</span><span class="step-text">麦翁布依古寨→布依族风情（20分钟）</span></div>
+<div class="step"><span class="step-num">5</span><span class="step-text">还车→出园（20分钟）</span></div>
+</div>
+<div class="warn-box"><div class="warn-title">⚠️ 注意</div>• 租车检查刹车轮胎，雨天慎骑<br>• 紫外线强，涂防晒戴帽子<br>• 🌧️ 雨天方案：花溪公园室内展馆+遮棚步道</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('spot4')"></button>
+</div>
+</div>
+<div class="tab-panel" id="panel-food">
+<div class="section-title">🍜 美食推荐</div>
+<div class="tip-box"><div class="tip-title">🍜 美食小贴士</div>• 辣度调整：点单说"老板，少辣点"<br>• 丝娃娃吃法：先喝酸汤→包菜丝→浇蘸水→一口塞<br>• 折耳根（鱼腥草）：吃不惯可要求不放<br>• 2人分食推荐：1份酸汤鱼+1份丝娃娃+1份肠旺面<br>• 🥔当地土豆片基本不踩雷，但好吃街同类小吃价格略高，提前对比再买<br>• 🥛山花酸奶是贵阳本土品牌，便利店可买，推荐冰淇淋味、芦荟味</div>
+<div class="warn-box"><div class="warn-title">⚠️ 避雷提醒</div>• 「一烙锅」口味争议较大，朋友实测不合口味，不强制推荐，可根据个人喜好观望选择</div>
+<div class="card food-card collapsed" id="food1">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">1. 民生路美食街</span>
+<span class="tag tag-free">一站式</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">云岩区民生路与竹筒街交叉口</span></div>
+<div class="info-item"><span class="label">🕐 营业</span><span class="value">7:00-22:00</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1/2号线喷水池站H口步行3分钟</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71417,26.59833&name=民生路美食街&callnative=0" target="_blank">🗺️ 导航去民生路</a>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<div style="font-weight:700;color:var(--accent)">📋 推荐组合（2人分食约¥65）</div>
+• <strong>杨姨妈丝娃娃</strong>（微辣）¥33 — 薄饼包菜丝浇酸辣蘸水<br>
+• <strong>南门口肠旺面</strong>（中辣）¥17 — 肥肠+血旺+脆哨+红油<br>
+• <strong>雷家豆腐圆子</strong>（微辣）¥15 — 1874年省级非遗，外酥里嫩<br>
+• <strong>但家香酥鸭</strong>（中辣）¥25 — 鲜麻酥脆，花椒味浓<br>
+• <strong>丁家脆哨</strong> — 五花肉/瘦肉两种，¥25-40/罐
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food1')"></button>
+</div>
+<div class="card food-card collapsed" id="food2">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">2. 花溪王记牛肉粉</span>
+<span class="tag tag-blue">4.5★</span><span class="tag tag-spicy-mild">微辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">花溪区花溪大道南段（公园正门左转500米）</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥18</span></div>
+<div class="info-item"><span class="label">🕐 营业</span><span class="value">07:00-20:00</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.67450,26.40850&name=花溪王记牛肉粉&callnative=0" target="_blank">🗺️ 导航去王记牛肉粉</a>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>招牌：</strong>牛肉粉（微辣）汤鲜味美+溏心蛋绝配<br>
+<strong>不辣：</strong>清汤牛肉粉 — 原汁原味<br>
+<strong>评价：</strong>"花溪牛肉粉名片！汤鲜到舔碗"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food2')"></button>
+</div>
+<div class="card food-card collapsed" id="food3">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">3. 老凯俚酸汤鱼</span>
+<span class="tag tag-blue">4.5★</span><span class="tag tag-spicy-medium">中辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">云岩区省府路55号（甲秀楼步行10分钟）</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥45</span></div>
+<div class="info-item"><span class="label">🕐 营业</span><span class="value">10:00-02:00</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71650,26.58150&name=老凯俚酸汤鱼(省府路总店)&callnative=0" target="_blank">🗺️ 导航去酸汤鱼</a>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>招牌：</strong>红酸汤鱼（中辣）— 毛辣果发酵红酸汤，汤泡饭三碗起步<br>
+<strong>不辣：</strong>毛辣果米皮 — 酸而不辣<br>
+<strong>评价：</strong>"来贵阳不吃酸汤鱼等于白来！"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food3')"></button>
+</div>
+<div class="card food-card collapsed" id="food4">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">4. 荷城羊肉粉</span>
+<span class="tag tag-blue">4.5★</span><span class="tag tag-spicy-mild">微辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">观山湖区诚信北路绿地联盛</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥15</span></div>
+<div class="info-item"><span class="label">🕐 营业</span><span class="value">24小时</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.62350,26.62150&name=荷城羊肉粉(观山湖店)&callnative=0" target="_blank">🗺️ 导航去羊肉粉</a>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>招牌：</strong>羊肉粉（微辣）— 羊骨熬制12小时老汤<br>
+<strong>不辣：</strong>清汤羊肉粉<br>
+<strong>评价：</strong>"出租车司机的深夜补给站，12元一碗性价比无敌"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food4')"></button>
+</div>
+<div class="card food-card collapsed" id="food5">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">5. 857烙锅</span>
+<span class="tag tag-blue">4.6★</span><span class="tag tag-spicy-medium">中辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">观山湖区数博大道长岭北路</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥50</span></div>
+<div class="info-item"><span class="label">🕐 营业</span><span class="value">17:00-02:00</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.62600,26.62300&name=857烙锅(观山湖店)&callnative=0" target="_blank">🗺️ 导航去烙锅</a>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>招牌：</strong>坨坨肉¥28（中辣）+ 爆浆豆腐¥10（微辣）<br>
+<strong>不辣：</strong>红糖糍粑 — 解辣神器<br>
+<strong>评价：</strong>"贵阳版深夜食堂，人均50吃到撑"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food5')"></button>
+</div>
+<div class="card food-card collapsed" id="food6">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">6. 心有客酸汤火锅</span>
+<span class="tag tag-blue">实测推荐</span><span class="tag tag-spicy-medium">中辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">花溪区贵州大学附近（花溪公园打车约10分钟）</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥40-50</span></div>
+<div class="info-item"><span class="label">🌟 特色</span><span class="value">酸汤火锅·蔬菜免费自助·米饭水果随便吃·大学生扎堆性价比之王</span></div>
+</div>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>推荐：</strong>酸汤锅底+现切牛肉+豆米（加一份更浓郁拌饭绝配）<br>
+<strong>评价：</strong>"人均四五十就能吃很好，吊打网红店""蔬菜无限续，量足实惠"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food6')"></button>
+</div>
+<div class="card food-card collapsed" id="food7">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:16px;font-weight:700">7. 新大新豆米火锅（喷水池店）</span>
+<span class="tag tag-blue">老字号</span><span class="tag tag-spicy-mild">微辣</span>
+</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">云岩区喷水池南国花锦（酒店步行5分钟）</span></div>
+<div class="info-item"><span class="label">💰 人均</span><span class="value">¥50-70</span></div>
+<div class="info-item"><span class="label">🌟 特色</span><span class="value">贵阳老字号·豆米熬至浓稠如粥·汤泡饭封神·软哨灵魂配菜</span></div>
+</div>
+<div class="expand-content">
+<div style="margin-top:12px;font-size:14px;line-height:1.8">
+<strong>必点：</strong>软哨、腊肉片、豆腐圆子、板筋<br>
+<strong>吃法：</strong>一勺豆汤浇饭，香到舔盘！豆米+汤底拌饭是灵魂<br>
+<strong>评价：</strong>"豆米拌饭太香了，越煮越有味道""贵阳必吃豆米火锅"
+</div>
+</div>
+<button class="expand-btn" onclick="toggleExpand('food7')"></button>
+</div>
+</div>
+<div class="tab-panel" id="panel-hotel">
+<div class="section-title">🏨 酒店推荐</div>
+<div class="card hotel-card">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">龙猫精灵酒店</span>
+<span class="tag tag-blue">携程高分</span>
+</div>
+<div style="font-size:13px;color:var(--text2);margin-bottom:12px">喷水池地铁站民生路好吃街店 · 日式治愈设计</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">云岩区延安中路1号虹祥大厦9层</span></div>
+<div class="info-item"><span class="label">💰 价格</span><span class="value">淡季¥100+/晚 · 旺季¥200-300</span></div>
+<div class="info-item"><span class="label">🛏️ 房型</span><span class="value">智能大床房/双床房</span></div>
+<div class="info-item"><span class="label">🔧 设施</span><span class="value">智能家居·高清投影·浴缸·免费WiFi·24h前台</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1/2号线喷水池站H口0距离！</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71350,26.59900&name=龙猫精灵酒店(喷水池店)&callnative=0" target="_blank">🗺️ 导航去酒店</a>
+<div class="table-wrap" style="margin-top:12px">
+<table>
+<tr><th>目的地</th><th>距离</th><th>方式</th></tr>
+<tr><td>民生路美食街</td><td>2分钟</td><td>步行</td></tr>
+<tr><td>黔灵山公园</td><td>5分钟</td><td>打车¥10</td></tr>
+<tr><td>甲秀楼</td><td>8分钟</td><td>步行</td></tr>
+<tr><td>白宫(花果园)</td><td>15分钟</td><td>地铁1→3号线</td></tr>
+<tr><td>花溪公园</td><td>40分钟</td><td>地铁1→3号线</td></tr>
+<tr><td>贵阳北站</td><td>20分钟</td><td>地铁1号线7站</td></tr>
+</table>
+</div>
+<div class="tip-box"><div class="tip-title">💬 住客评价</div>"人均百元=青旅价格+轻奢体验""下楼就是民生路，吃的超多""前台给自制旅游手册，推荐美食景点"</div>
+</div>
+</div>
+<div class="tab-panel" id="panel-tips">
+<div class="section-title">💡 实用提示</div>
+<div class="card">
+<div class="sub-title">🚄 高铁购票</div>
+<div style="font-size:14px;line-height:1.8">
+<strong>去程：</strong>G3587 重庆西11:13→贵阳北13:18（¥139，2h5min）<br>
+<strong>返程：</strong>G2882 贵阳北19:38→重庆西21:42（¥139，2h4min）←21:42到重庆西，23:15到北碚<br>
+<strong>购票：</strong>12306 APP提前购票，选靠窗A/F座<br>
+<strong>⚠️ 注意：</strong>区分贵阳北/贵阳东！到贵阳东的车需额外换乘20分钟<br>
+<strong>⚠️ 北碚→重庆西：</strong>轨道6号线→5号线，约1.5小时，¥8，建议提前2小时出发<br>
+<strong>⚠️ 地铁充值：</strong>贵阳地铁需提前给乘车码/交通卡充值，避免进站时余额不足耽误行程
+</div>
+</div>
+<div class="card">
+<div class="sub-title">🚌 市内交通</div>
+<div style="font-size:14px;line-height:1.8">
+<strong>地铁：</strong>1/2/3号线，支付宝搜"贵阳地铁"扫码乘车，票价2-5元 · ⚠️提前充值避免余额不足<br>
+<strong>公交：</strong>云闪付/支付宝扫码，票价2元<br>
+<strong>打车：</strong>滴滴出行，市区10-20元 · ⚠️甲秀楼周边晚高峰(17-19点)非常堵，优先地铁+步行<br>
+<strong>导航：</strong>高德地图，提前下载贵阳离线地图
+</div>
+<div class="table-wrap" style="margin-top:12px">
+<table>
+<tr><th>起点→终点</th><th>地铁</th><th>打车</th></tr>
+<tr><td>酒店→黔灵山</td><td>打车5min</td><td>¥10</td></tr>
+<tr><td>酒店→白宫</td><td>1→3号线15min</td><td>¥20</td></tr>
+<tr><td>酒店→甲秀楼</td><td>步行8min</td><td>--</td></tr>
+<tr><td>酒店→花溪</td><td>1→3号线40min</td><td>¥35</td></tr>
+<tr><td>甲秀楼→贵阳北</td><td>1号线20min</td><td>¥30</td></tr>
+</table>
+</div>
+</div>
+<div class="card">
+<div class="sub-title">🎒 必备物品</div>
+<ul class="checklist" id="checklist">
+<li><input type="checkbox"> 身份证（高铁+酒店必备！）</li>
+<li><input type="checkbox"> 手机+充电器+充电宝</li>
+<li><input type="checkbox"> 防滑运动鞋（爬山必备）</li>
+<li><input type="checkbox"> 折叠晴雨伞（贵阳"天无三日晴"）</li>
+<li><input type="checkbox"> 防晒霜SPF50+</li>
+<li><input type="checkbox"> 薄外套（昼夜温差8-10℃）</li>
+<li><input type="checkbox"> 驱蚊液（湿地公园必备）</li>
+<li><input type="checkbox"> 肠胃药+感冒药+创可贴</li>
+<li><input type="checkbox"> 纸巾+湿巾+环保袋</li>
+<li><input type="checkbox"> 少量现金¥200应急</li>
+<li><input type="checkbox"> 高德地图APP（下载离线地图）</li>
+<li><input type="checkbox"> 12306 APP（提前购票）</li>
+</ul>
+</div>
+<div class="card">
+<div class="sub-title">🗣️ 贵阳方言</div>
+<div style="font-size:14px;line-height:2">
+<strong>"老板，少辣点"</strong> — 点餐减辣（最常用！）<br>
+<strong>"好多钱？"</strong> — 多少钱？<br>
+<strong>"要得！"</strong> — 好的/行！<br>
+<strong>"安逸！"</strong> — 舒服/太好了！<br>
+<strong>"折耳根放不放？"</strong> — 鱼腥草要不要？<br>
+<strong>"搞快滴！"</strong> — 快点！
+</div>
+</div>
+<div class="card">
+<div class="sub-title">🎁 伴手礼</div>
+<div style="font-size:14px;line-height:1.8">
+<strong>波波糖</strong> ¥15-25/盒 · <strong>刺梨干</strong> ¥20-35/袋<br>
+<strong>但家香酥鸭（真空装）</strong> ¥35-50/只 · <strong>丁家脆哨</strong> ¥25-40/罐<br>
+<strong>玫瑰糖</strong> ¥10-20/瓶 · <strong>🥛山花酸奶</strong> ¥5-8/杯（便利店可买，推荐冰淇淋味、芦荟味，贵阳本土品牌必尝！）
+</div>
+</div>
+<div class="card">
+<div class="sub-title">🏥 健康与安全</div>
+<div class="table-wrap">
+<table>
+<tr><th>类别</th><th>建议</th><th>应急</th></tr>
+<tr><td>饮食安全</td><td>只吃煮熟食物，喝瓶装水</td><td>腹泻服蒙脱石散；严重去贵医附院</td></tr>
+<tr><td>人身安全</td><td>不单独去偏僻区域</td><td>紧急拨打110</td></tr>
+<tr><td>财物安全</td><td>钱财分放，背包放身前</td><td>丢失拨打110报警</td></tr>
+</table>
+</div>
+</div>
+</div>
+<div class="nav-bottom">
+<a href="javascript:void(0)" class="active" data-tab="route">🚄<span>路线</span></a>
+<a href="javascript:void(0)" data-tab="scenic">🏞️<span>景点</span></a>
+<a href="javascript:void(0)" data-tab="food">🍜<span>美食</span></a>
+<a href="javascript:void(0)" data-tab="hotel">🏨<span>酒店</span></a>
+<a href="javascript:void(0)" data-tab="tips">💡<span>提示</span></a>
+</div>
+<script>
+function switchTab(tabId){
+document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.dataset.tab===tabId)});
+document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.toggle('active',p.id==='panel-'+tabId)});
+document.querySelectorAll('.nav-bottom a').forEach(function(a){a.classList.toggle('active',a.dataset.tab===tabId)});
+try{localStorage.setItem('gy_tab',tabId)}catch(e){}
+}
+document.querySelectorAll('.tab-btn').forEach(function(b){b.addEventListener('click',function(){switchTab(b.dataset.tab)})});
+document.querySelectorAll('.nav-bottom a').forEach(function(a){a.addEventListener('click',function(){switchTab(a.dataset.tab)})});
+function toggleExpand(id){
+var el=document.getElementById(id);
+el.classList.toggle('collapsed');
+el.classList.toggle('expanded');
+}
+function togglePlace(id){
+var el=document.getElementById(id);
+if(el)el.classList.toggle('show');
+}
+function toggleWeatherDetail(){
+var d=document.getElementById('weatherDetail');
+d.classList.toggle('show');
+}
+try{var saved=localStorage.getItem('gy_tab');if(saved)switchTab(saved)}catch(e){}
+try{var checks=JSON.parse(localStorage.getItem('gy_checks')||'{}');document.querySelectorAll('#checklist input').forEach(function(c,i){if(checks[i]){c.checked=true}c.addEventListener('change',function(){var obj={};document.querySelectorAll('#checklist input').forEach(function(v,j){obj[j]=v.checked});try{localStorage.setItem('gy_checks',JSON.stringify(obj))}catch(e){}})})}catch(e){}
+try{var routeChecks=JSON.parse(localStorage.getItem('gy_route')||'{}');document.querySelectorAll('.route-check').forEach(function(c){var k=c.dataset.key;if(routeChecks[k])c.checked=true;c.addEventListener('change',function(){var obj={};document.querySelectorAll('.route-check').forEach(function(v){obj[v.dataset.key]=v.checked});try{localStorage.setItem('gy_route',JSON.stringify(obj))}catch(e){}})})}catch(e){}
+try{if(localStorage.getItem('gy_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}
+function fetchWeather(){
+var url='https://wttr.in/Guiyang?format=j1';
+fetch(url).then(function(r){return r.json()}).then(function(d){
+var cur=d.current_condition[0];
+var temp=cur.temp_C;
+var desc=cur.lang_zh&&cur.lang_zh[0]?cur.lang_zh[0].value:cur.weatherDesc[0].value;
+var icon=cur.weatherCode;
+var iconMap={'113':'☀️','116':'🌤️','119':'☁️','122':'☁️','143':'🌫️','176':'🌦️','179':'🌨️','182':'🌨️','185':'🌨️','200':'⛈️','227':'🌨️','230':'❄️','248':'🌫️','260':'🌫️','263':'🌦️','266':'🌧️','281':'🌧️','284':'🌧️','293':'🌦️','296':'🌧️','299':'🌧️','302':'🌧️','305':'🌧️','308':'⛈️','311':'🌧️','314':'🌨️','317':'🌨️','320':'❄️','323':'🌨️','326':'🌨️','329':'❄️','332':'❄️','335':'❄️','338':'❄️','350':'🌨️','353':'🌦️','356':'🌧️','359':'🌧️','362':'🌨️','365':'🌨️','368':'🌨️','371':'❄️','374':'🌨️','377':'🌨️','386':'🌦️','389':'⛈️','392':'🌨️','395':'❄️'};
+var emoji=iconMap[icon]||'🌤️';
+document.getElementById('wIcon').textContent=emoji;
+document.getElementById('wTemp').textContent=temp+'°C';
+document.getElementById('wDesc').textContent='贵阳 · '+desc;
+document.getElementById('wWind').textContent='风: '+cur.winddir16Point+' '+cur.windspeedKmph+'km/h';
+document.getElementById('wHumidity').textContent='湿度: '+cur.humidity+'%';
+document.getElementById('wFeels').textContent='体感: '+cur.FeelsLikeC+'°C';
+document.getElementById('wVis').textContent='能见度: '+cur.visibility+'km';
+document.getElementById('wPressure').textContent='气压: '+cur.pressure+'hPa';
+var now=new Date();
+document.getElementById('wUpdate').textContent='更新: '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+if(d.weather&&d.weather[0]){
+var alerts=[];
+d.weather[0].hourly.forEach(function(h){
+if(parseInt(h.chanceofrain)>70)alerts.push('🌧️ 降雨概率'+h.chanceofrain+'%');
+if(parseInt(h.chanceofsnow)>30)alerts.push('❄️ 降雪概率'+h.chanceofsnow+'%');
+});
+if(parseInt(d.weather[0].mintempC)<5)alerts.push('🥶 最低温仅'+d.weather[0].mintempC+'°C，注意保暖');
+if(parseInt(d.weather[0].maxtempC)>35)alerts.push('🥵 最高温达'+d.weather[0].maxtempC+'°C，注意防暑');
+if(alerts.length>0){
+document.getElementById('weatherAlert').textContent='⚠️ 天气预警：'+alerts.join(' | ');
+document.getElementById('weatherAlert').classList.add('show');
+}
+}
+}).catch(function(e){
+document.getElementById('wDesc').textContent='贵阳 · 天气获取失败';
+document.getElementById('wTemp').textContent='--°C';
+});
+}
+fetchWeather();
+setInterval(fetchWeather,1800000);
+</script>
+</body>
+</html>
