@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>贵阳2日旅游攻略 · 方案A美食版</title>
 <style>
-:root{--primary:#2e7d32;--primary-light:#4caf50;--secondary:#1565c0;--accent:#f57c00;--bg:#f5f7fa;--card:#fff;--text:#212121;--text2:#616161;--border:#e0e0e0;--shadow:0 2px 8px rgba(0,0,0,.1);--radius:12px;--nav-bg:#1b5e20;--safe:env(safe-area-inset-bottom,0px)}
-[data-theme="dark"]{--primary:#66bb6a;--primary-light:#81c784;--secondary:#42a5f5;--accent:#ffb74d;--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--text2:#9e9e9e;--border:#333;--shadow:0 2px 8px rgba(0,0,0,.3);--nav-bg:#1b5e20}
+:root{--primary:#2e7d32;--primary-light:#4caf50;--secondary:#1565c0;--accent:#f57c00;--bg:#f5f7fa;--card:#ffffff;--text:#212121;--text2:#616161;--border:#e0e0e0;--shadow:0 2px 8px rgba(0,0,0,.1);--radius:12px;--nav-bg:#1b5e20;--safe:env(safe-area-inset-bottom,0px);--transition:all 0.3s ease;--gradient-primary:linear-gradient(135deg, #2e7d32, #4caf50);--gradient-secondary:linear-gradient(135deg, #1565c0, #42a5f5);--gradient-accent:linear-gradient(135deg, #f57c00, #ff9800)}
+[data-theme="dark"]{--primary:#66bb6a;--primary-light:#81c784;--secondary:#42a5f5;--accent:#ffb74d;--bg:#121212;--card:#1e1e1e;--text:#e0e0e0;--text2:#9e9e9e;--border:#333;--shadow:0 2px 8px rgba(0,0,0,.3);--nav-bg:#1b5e20;--gradient-primary:linear-gradient(135deg, #66bb6a, #81c784);--gradient-secondary:linear-gradient(135deg, #42a5f5, #64b5f6);--gradient-accent:linear-gradient(135deg, #ffb74d, #ffcc80)}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);padding-bottom:70px;overflow-x:hidden}
 a{color:var(--secondary);text-decoration:none}
@@ -33,8 +33,10 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 .tab-panel.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .section-title{font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.card{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border)}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600;color:#fff;margin-right:4px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border);transition:var(--transition);transform:translateY(0)}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.15)}
+.tag{display:inline-block;padding:4px 12px;border-radius:16px;font-size:12px;font-weight:600;color:#fff;margin-right:6px;transition:var(--transition);transform:translateY(0);box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.tag:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.15)}
 .tag-free{background:#4caf50}.tag-gold{background:#ffa000}.tag-blue{background:#1976d2}.tag-red{background:#d32f2f}
 .tag-spicy-mild{background:#8bc34a}.tag-spicy-medium{background:#ff9800}.tag-spicy-hot{background:#f44336}
 .info-grid{display:grid;gap:8px;margin-top:12px}
@@ -44,11 +46,16 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 .route-box{background:var(--bg);border-radius:8px;padding:12px;margin-top:12px;font-size:14px;line-height:1.8}
 .route-box .step{display:flex;gap:8px;align-items:flex-start;margin-bottom:4px}
 .route-box .step-num{background:var(--primary);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
-.nav-btn{display:inline-flex;align-items:center;gap:4px;background:var(--secondary);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;min-height:44px;transition:opacity .2s;margin:4px 4px 4px 0}
-.nav-btn:active{opacity:.8}
+.nav-btn{display:inline-flex;align-items:center;gap:4px;background:var(--gradient-secondary);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;min-height:44px;transition:var(--transition);margin:4px 4px 4px 0;box-shadow:0 2px 4px rgba(0,0,0,.1);transform:translateY(0)}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.15)}
+.nav-btn:active{opacity:.8;transform:translateY(0)}
 .food-card{border-left:4px solid var(--accent)}
 .hotel-card{border-left:4px solid var(--tag-blue)}
-.spot-img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px;background:#e0e0e0}
+.spot-img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px;background:#e0e0e0;transition:var(--transition);transform:scale(1);overflow:hidden;position:relative}
+.spot-img:hover{transform:scale(1.02)}
+.spot-img::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3) 100%);z-index:1}
+.spot-img img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
+.spot-img:hover img{transform:scale(1.05)}
 .timeline{position:relative;padding-left:24px}
 .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--primary)}
 .timeline-item{position:relative;margin-bottom:16px}
@@ -87,8 +94,9 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 .nav-bottom a.active{color:var(--primary)}
 .dark-toggle{background:rgba(255,255,255,.2);color:#fff;padding:6px 12px;border-radius:20px;font-size:13px;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
 .dark-toggle:active{background:rgba(255,255,255,.3)}
-.expand-btn{background:var(--primary-light);color:#fff;padding:8px 16px;border-radius:8px;font-size:14px;font-weight:600;width:100%;margin-top:8px;min-height:44px}
-.expand-btn:active{opacity:.8}
+.expand-btn{background:var(--gradient-primary);color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;width:100%;margin-top:12px;min-height:44px;transition:var(--transition);box-shadow:0 2px 4px rgba(0,0,0,.1);transform:translateY(0)}
+.expand-btn:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.15)}
+.expand-btn:active{opacity:.8;transform:translateY(0)}
 .collapsed .expand-content{display:none}
 .expanded .expand-content{display:block}
 .collapsed .expand-btn::after{content:' 展开详情 ▼'}
@@ -486,6 +494,40 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 </table>
 </div>
 <div class="tip-box"><div class="tip-title">💬 住客评价</div>"人均百元=青旅价格+轻奢体验""下楼就是民生路，吃的超多""前台给自制旅游手册，推荐美食景点"</div>
+</div>
+<div class="card hotel-card">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">欢住｜Soong·CinemaBathtub 设计酒店</span>
+<span class="tag tag-blue">电影风</span>
+<span class="tag tag-gold">浴缸房</span>
+</div>
+<div style="font-size:13px;color:var(--text2);margin-bottom:12px">喷水池地铁站甲秀楼店 · 电影感设计</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">喷水池商圈-护国路旁，中山西路地铁站F口楼下</span></div>
+<div class="info-item"><span class="label">💰 价格</span><span class="value">人均约¥150-260/晚（淡旺季浮动）</span></div>
+<div class="info-item"><span class="label">🛏️ 房型</span><span class="value">电影风房间·浴缸房·落地窗房</span></div>
+<div class="info-item"><span class="label">🔧 设施</span><span class="value">公共空间·社交区域·免费WiFi·24h前台</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1/2号线中山西路站F口0距离，步行可达甲秀楼、文昌阁</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71500,26.58500&name=欢住设计酒店&callnative=0" target="_blank">🗺️ 导航去酒店</a>
+<div class="tip-box"><div class="tip-title">💬 住客评价</div>"电影感房间，夜景氛围感拉满""公共空间偏青旅vibe，适合交友""交通无敌便利，步行可达多个景点"</div>
+</div>
+<div class="card hotel-card">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+<span style="font-size:18px;font-weight:700">猫的远方 YOUNG·IS·FASHION 高空设计酒店</span>
+<span class="tag tag-blue">高空视野</span>
+<span class="tag tag-gold">青春潮居</span>
+</div>
+<div style="font-size:13px;color:var(--text2);margin-bottom:12px">喷水池地铁站店 · 高空设计风格</div>
+<div class="info-grid">
+<div class="info-item"><span class="label">📍 地址</span><span class="value">喷水池地铁站H口旁，1/2号线交汇处</span></div>
+<div class="info-item"><span class="label">💰 价格</span><span class="value">人均约¥150-300/晚（淡旺季浮动）</span></div>
+<div class="info-item"><span class="label">🛏️ 房型</span><span class="value">高空景观房·设计感房间</span></div>
+<div class="info-item"><span class="label">🔧 设施</span><span class="value">高空视野·社交空间·免费WiFi·24h前台</span></div>
+<div class="info-item"><span class="label">🚇 交通</span><span class="value">地铁1/2号线喷水池站H口0距离，楼下就是太平路网红街+民生路好吃街</span></div>
+</div>
+<a class="nav-btn" href="https://uri.amap.com/marker?position=106.71400,26.59500&name=猫的远方酒店&callnative=0" target="_blank">🗺️ 导航去酒店</a>
+<div class="tip-box"><div class="tip-title">💬 住客评价</div>"高空视野，设计感十足""楼下就是网红街和美食街""青春潮居风格，适合年轻人"</div>
 </div>
 </div>
 <div class="tab-panel" id="panel-tips">
