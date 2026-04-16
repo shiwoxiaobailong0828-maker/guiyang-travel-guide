@@ -572,7 +572,6 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 <strong>旅游咨询：</strong>12345（贵阳市政府服务热线）<br>
 </div>
 </div>
-</div>
 <div class="nav-bottom">
 <a href="javascript:void(0)" class="active" data-tab="route">🚄<span>路线</span></a>
 <a href="javascript:void(0)" data-tab="scenic">🏞️<span>景点</span></a>
@@ -607,11 +606,44 @@ try{var checks=JSON.parse(localStorage.getItem('gy_checks')||'{}');document.quer
 try{var routeChecks=JSON.parse(localStorage.getItem('gy_route')||'{}');document.querySelectorAll('.route-check').forEach(function(c){var k=c.dataset.key;if(routeChecks[k])c.checked=true;c.addEventListener('change',function(){var obj={};document.querySelectorAll('.route-check').forEach(function(v){obj[v.dataset.key]=v.checked});try{localStorage.setItem('gy_route',JSON.stringify(obj))}catch(e){}})})}catch(e){}
 try{if(localStorage.getItem('gy_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}
 function fetchWeather(){
-fetch('https://wttr.in/贵阳?format=j1').then(function(r){return r.json()}).then(function(d){
-if(d.current_condition){var c=d.current_condition[0];document.getElementById('wTemp').textContent=c.temp_C+'°C';document.getElementById('wDesc').textContent='贵阳 · '+c.weatherDesc[0].value;document.getElementById('wWind').textContent='风向: '+c.winddir16Point+' '+c.windspeedKmph+'km/h';document.getElementById('wHumidity').textContent='湿度: '+c.humidity+'%';document.getElementById('wFeels').textContent='体感: '+c.FeelsLikeC+'°C';document.getElementById('wVis').textContent='能见度: '+c.visibility+'km';document.getElementById('wPressure').textContent='气压: '+c.pressureMb+'hPa';var now=new Date();document.getElementById('wUpdate').textContent='更新: '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');if(d.weather&&d.weather[0]){var alerts=[];d.weather[0].hourly.forEach(function(h){if(parseInt(h.chanceofrain)>70)alerts.push('🌧️ 降雨概率'+h.chanceofrain+'%');if(parseInt(h.chanceofsnow)>30)alerts.push('❄️ 降雪概率'+h.chanceofsnow+'%');});if(parseInt(d.weather[0].mintempC)<5)alerts.push('🥶 最低温仅'+d.weather[0].mintempC+'°C，注意保暖');if(parseInt(d.weather[0].maxtempC)>35)alerts.push('🥵 最高温达'+d.weather[0].maxtempC+'°C，注意防暑');if(alerts.length>0){document.getElementById('weatherAlert').textContent='⚠️ 天气预警：'+alerts.join(' | ');document.getElementById('weatherAlert').classList.add('show');}}}}).catch(function(e){document.getElementById('wDesc').textContent='贵阳 · 天气获取失败';document.getElementById('wTemp').textContent='--°C';});
+var url='https://wttr.in/Guiyang?format=j1';
+fetch(url).then(function(r){return r.json()}).then(function(d){
+var cur=d.current_condition[0];
+var temp=cur.temp_C;
+var desc=cur.lang_zh&&cur.lang_zh[0]?cur.lang_zh[0].value:cur.weatherDesc[0].value;
+var icon=cur.weatherCode;
+var iconMap={'113':'☀️','116':'🌤️','119':'☁️','122':'☁️','143':'🌫️','176':'🌦️','179':'🌨️','182':'🌨️','185':'🌨️','200':'⛈️','227':'🌨️','230':'❄️','248':'🌫️','260':'🌫️','263':'🌦️','266':'🌧️','281':'🌧️','284':'🌧️','293':'🌦️','296':'🌧️','299':'🌧️','302':'🌧️','305':'🌧️','308':'⛈️','311':'🌧️','314':'🌨️','317':'🌨️','320':'❄️','323':'🌨️','326':'🌨️','329':'❄️','332':'❄️','335':'❄️','338':'❄️','350':'🌨️','353':'🌦️','356':'🌧️','359':'🌧️','362':'🌨️','365':'🌨️','368':'🌨️','371':'❄️','374':'🌨️','377':'🌨️','386':'🌦️','389':'⛈️','392':'🌨️','395':'❄️'};
+var emoji=iconMap[icon]||'🌤️';
+document.getElementById('wIcon').textContent=emoji;
+document.getElementById('wTemp').textContent=temp+'°C';
+document.getElementById('wDesc').textContent='贵阳 · '+desc;
+document.getElementById('wWind').textContent='风: '+cur.winddir16Point+' '+cur.windspeedKmph+'km/h';
+document.getElementById('wHumidity').textContent='湿度: '+cur.humidity+'%';
+document.getElementById('wFeels').textContent='体感: '+cur.FeelsLikeC+'°C';
+document.getElementById('wVis').textContent='能见度: '+cur.visibility+'km';
+document.getElementById('wPressure').textContent='气压: '+cur.pressure+'hPa';
+var now=new Date();
+document.getElementById('wUpdate').textContent='更新: '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+if(d.weather&&d.weather[0]){
+var alerts=[];
+d.weather[0].hourly.forEach(function(h){
+if(parseInt(h.chanceofrain)>70)alerts.push('🌧️ 降雨概率'+h.chanceofrain+'%');
+if(parseInt(h.chanceofsnow)>30)alerts.push('❄️ 降雪概率'+h.chanceofsnow+'%');
+});
+if(parseInt(d.weather[0].mintempC)<5)alerts.push('🥶 最低温仅'+d.weather[0].mintempC+'°C，注意保暖');
+if(parseInt(d.weather[0].maxtempC)>35)alerts.push('🥵 最高温达'+d.weather[0].maxtempC+'°C，注意防暑');
+if(alerts.length>0){
+document.getElementById('weatherAlert').textContent='⚠️ 天气预警：'+alerts.join(' | ');
+document.getElementById('weatherAlert').classList.add('show');
+}
+}
+}).catch(function(e){
+document.getElementById('wDesc').textContent='贵阳 · 天气获取失败';
+document.getElementById('wTemp').textContent='--°C';
+});
 }
 fetchWeather();
 setInterval(fetchWeather,1800000);
 </script>
 </body>
-</html></
+</html>
