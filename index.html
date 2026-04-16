@@ -102,6 +102,15 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 .collapsed .expand-btn::after{content:' 展开详情 ▼'}
 .expanded .expand-btn::after{content:' 收起详情 ▲'}
 .sub-title{font-size:16px;font-weight:700;color:var(--secondary);margin:16px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--secondary)}
+.time-morning{--bg:#fff9e6;--card:#fffef0;--text:#5d4037;--primary:#8bc34a;--gradient-primary:linear-gradient(135deg, #8bc34a, #cddc39)}
+.time-noon{--bg:#e3f2fd;--card:#e8f5e9;--text:#1a237e;--primary:#2196f3;--gradient-primary:linear-gradient(135deg, #2196f3, #64b5f6)}
+.time-evening{--bg:#ffebee;--card:#fce4ec;--text:#880e4f;--primary:#e91e63;--gradient-primary:linear-gradient(135deg, #e91e63, #f06292)}
+.time-night{--bg:#1a1a2e;--card:#16213e;--text:#e8e8e8;--primary:#4fc3f7;--gradient-primary:linear-gradient(135deg, #4fc3f7, #81d4fa)}
+.weather-sunny{background:linear-gradient(135deg, #ffecb3, #ffe082)}
+.weather-cloudy{background:linear-gradient(135deg, #e0e0e0, #bdbdbd)}
+.weather-rainy{background:linear-gradient(135deg, #90caf9, #64b5f6)}
+.weather-snowy{background:linear-gradient(135deg, #e3f2fd, #bbdefb)}
+.dynamic-transition{transition:all 0.5s ease-in-out}
 </style>
 </head>
 <body>
@@ -207,6 +216,17 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 </table>
 </div>
 <div class="tip-box"><div class="tip-title">💡 预算说明</div>两日人均¥300（不含高铁），含高铁往返¥276，总预算约¥576/人<br>⚠️ 返程G2882为19:38发车→21:42到重庆西→约23:15到北碚，时间合理</div>
+</div>
+</div>
+<div class="card">
+<div class="sub-title">🆘 应急方案</div>
+<div class="route-box">
+<div class="step"><span class="step-num">🌧️</span><span class="step-text"><strong>雨天方案：</strong>民生路美食→贵州省博物馆（室内）→甲秀楼室内参观→白宫外观（雨天倒影更有意境）</span></div>
+<div class="step"><span class="step-num">🥵</span><span class="step-text"><strong>高温方案：</strong>清晨/傍晚游玩→中午室内避暑（博物馆/商场）→多补水防晒</span></div>
+<div class="step"><span class="step-num">🥶</span><span class="step-text"><strong>低温方案：</strong>增加室内景点（省博/地质博物馆）→减少户外时间→准备保暖衣物</span></div>
+<div class="step"><span class="step-num">🚇</span><span class="step-text"><strong>交通延误：</strong>地铁优先（不堵车）→预留充足换乘时间→备选打车路线</span></div>
+<div class="step"><span class="step-num">🏥</span><span class="step-text"><strong>医疗应急：</strong>贵阳市第一人民医院（云岩区）· 急诊电话：0851-85601120</span></div>
+<div class="step"><span class="step-num">📞</span><span class="step-text"><strong>紧急联系：</strong>报警 110 · 医疗 120 · 消防 119 · 旅游咨询 12345</span></div>
 </div>
 </div>
 <div class="tab-panel" id="panel-scenic">
@@ -597,22 +617,7 @@ button{cursor:pointer;border:none;font-family:inherit;font-size:14px}
 <strong>但家香酥鸭（真空装）</strong> ¥35-50/只 · <strong>丁家脆哨</strong> ¥25-40/罐<br>
 <strong>山花酸奶</strong> ¥3-5/瓶 · <strong>贵州茅台酒</strong>（如需购买请正规渠道）<br>
 </div>
-<div class="tip-box"><div class="tip-title">💡 购买建议</div>• 民生路、喷水池商圈均有专卖店<br>• 但家香酥鸭建议现买现吃，真空装可保存3-5天<br>• 刺梨干选择正规品牌，避免添加剂过多</div>
-</div>
-<div class="card">
-<div class="sub-title">🌧️ 雨天应急方案</div>
-<div style="font-size:14px;line-height:1.8">
-<strong>Day 1 雨天：</strong>民生路美食→贵州省博物馆→甲秀楼室内参观→白宫外观（雨天倒影更有意境）<br>
-<strong>Day 2 雨天：</strong>花溪室内展馆→青岩古镇（可避雨）→市区购物→返程<br>
-</div>
-</div>
-<div class="card">
-<div class="sub-title">📞 紧急联系</div>
-<div style="font-size:14px;line-height:1.8">
-<strong>报警：</strong>110 · <strong>医疗：</strong>120 · <strong>消防：</strong>119<br>
-<strong>贵阳北站：</strong>0851-88181222 · <strong>贵阳地铁：</strong>0851-86851111<br>
-<strong>旅游咨询：</strong>12345（贵阳市政府服务热线）<br>
-</div>
+<div class="tip-box"><div class="tip-title">💡 购买建议</div>• 民生路、喷水池商圈均有专卖店<br>• 但家香酥鸭建议现买现吃，真空装可保存 3-5 天<br>• 刺梨干选择正规品牌，避免添加剂过多</div>
 </div>
 <div class="nav-bottom">
 <a href="javascript:void(0)" class="active" data-tab="route">🚄<span>路线</span></a>
@@ -647,6 +652,29 @@ try{var saved=localStorage.getItem('gy_tab');if(saved)switchTab(saved)}catch(e){
 try{var checks=JSON.parse(localStorage.getItem('gy_checks')||'{}');document.querySelectorAll('#checklist input').forEach(function(c,i){if(checks[i]){c.checked=true}c.addEventListener('change',function(){var obj={};document.querySelectorAll('#checklist input').forEach(function(v,j){obj[j]=v.checked});try{localStorage.setItem('gy_checks',JSON.stringify(obj))}catch(e){}})})}catch(e){}
 try{var routeChecks=JSON.parse(localStorage.getItem('gy_route')||'{}');document.querySelectorAll('.route-check').forEach(function(c){var k=c.dataset.key;if(routeChecks[k])c.checked=true;c.addEventListener('change',function(){var obj={};document.querySelectorAll('.route-check').forEach(function(v){obj[v.dataset.key]=v.checked});try{localStorage.setItem('gy_route',JSON.stringify(obj))}catch(e){}})})}catch(e){}
 try{if(localStorage.getItem('gy_theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}
+function updateTimeTheme(){
+var hour=new Date().getHours();
+var body=document.body;
+body.classList.remove('time-morning','time-noon','time-evening','time-night');
+if(hour>=5&&hour<11){body.classList.add('time-morning');return'早晨'}
+else if(hour>=11&&hour<14){body.classList.add('time-noon');return'中午'}
+else if(hour>=14&&hour<18){body.classList.add('time-evening');return'下午'}
+else{body.classList.add('time-night');return'夜间'}
+}
+function updateWeatherTheme(weatherCode){
+var body=document.body;
+body.classList.remove('weather-sunny','weather-cloudy','weather-rainy','weather-snowy');
+if(weatherCode==='113'||weatherCode==='116'){body.classList.add('weather-sunny');return'晴朗'}
+else if(weatherCode==='119'||weatherCode==='122'){body.classList.add('weather-cloudy');return'多云'}
+else if(weatherCode==='176'||weatherCode==='179'||weatherCode==='263'||weatherCode==='266'||weatherCode==='293'||weatherCode==='296'||weatherCode==='302'||weatherCode==='305'||weatherCode==='353'||weatherCode==='356'){body.classList.add('weather-rainy');return'雨天'}
+else if(weatherCode==='182'||weatherCode==='185'||weatherCode==='227'||weatherCode==='230'||weatherCode==='320'||weatherCode==='323'||weatherCode==='326'||weatherCode==='329'||weatherCode==='332'||weatherCode==='335'||weatherCode==='338'||weatherCode==='371'||weatherCode==='374'||weatherCode==='377'){body.classList.add('weather-snowy');return'雪天'}
+else{body.classList.add('weather-cloudy');return'多云'}
+}
+function applyDynamicTheme(){
+var timePeriod=updateTimeTheme();
+console.log('时间段：'+timePeriod);
+}
+try{applyDynamicTheme()}catch(e){}
 function fetchWeather(){
 var url='https://wttr.in/Guiyang?format=j1';
 fetch(url).then(function(r){return r.json()}).then(function(d){
@@ -659,6 +687,7 @@ var emoji=iconMap[icon]||'🌤️';
 document.getElementById('wIcon').textContent=emoji;
 document.getElementById('wTemp').textContent=temp+'°C';
 document.getElementById('wDesc').textContent='贵阳 · '+desc;
+try{var weatherType=updateWeatherTheme(icon);console.log('天气类型：'+weatherType)}catch(e){}
 document.getElementById('wWind').textContent='风: '+cur.winddir16Point+' '+cur.windspeedKmph+'km/h';
 document.getElementById('wHumidity').textContent='湿度: '+cur.humidity+'%';
 document.getElementById('wFeels').textContent='体感: '+cur.FeelsLikeC+'°C';
